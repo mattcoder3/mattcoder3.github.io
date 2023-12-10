@@ -1,0 +1,160 @@
+* {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: #23272f;
+  overflow-x: hidden;
+  padding: 50px;
+  padding-left: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text {
+  width: 40vw;
+}
+
+header, h2, h3 {
+  font-weight: 900;
+}
+
+header, h2 {
+  font-size: 32px;
+  margin: 30px 0;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+code {
+  font-family: Inconsolata, monospace;
+}
+
+.snippet {
+  background-color: #13171f;
+  border-radius: 10px;
+  min-height: 20px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.text-fancy {
+  font-family: Inconsolata, monospace;
+  font-weight: 600;
+  padding: 3px;
+  background-color: #33373f;
+  border-radius: 5px;
+}
+
+.keyword {
+  color: #77b7d7;
+}
+
+.definition {
+  color: #86d9ca;
+}
+
+.string {
+  color: #977cdc;
+}
+
+.comment {
+  color: #999;
+}
+
+#navbar {
+  float: left;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: #13171f;
+  width: 200px;
+  height: 100%;
+}
+
+#navbar header {
+  text-align: center;
+}
+
+.nav-link {
+  height: 45px;
+  width: 90%;
+  line-height: 45px;
+  text-decoration: none;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.nav-link:hover{
+  background-color: #33373f;
+  border-radius: 0 30px 30px 0;
+}
+@media (min-width: 500px) and (max-width: 1000px){
+  #navbar {
+    width: 110px;
+    font-size: 10px;
+  }
+
+  main {
+    padding-left: 150px;
+    padding-right: 40px;
+  }
+
+  .snippet {
+    width: 90%;
+  }
+
+  .nav-link {
+    height: 30px;
+    width: 92%;
+    line-height: 30px;
+    padding-left: 5px;
+  }
+
+  .text {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 500px){
+
+  #navbar {
+    opacity: 0;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .snippet {
+    width: 95%;
+    font-size: 12px;
+  }
+
+  .text {
+    width: 80vw;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+}

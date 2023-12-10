@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Roboto:wght@300;500;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>APIs</header>
+      <a class="nav-link" href="#cache">cache</a>
+      <a class="nav-link" href="#createContext">createContext</a>
+      <a class="nav-link"
+      href="#forwardRef">forwardRef</a>
+      <a class="nav-link"
+      href="#lazy">lazy</a>
+      <a class="nav-link"
+      href="#memo">memo</a>
+      <a class="nav-link"
+      href="#startTransition">startTransition</a>
+      <a class="nav-link"
+      href="#taintObjectReference">taintObjectReference</a><a class="nav-link"
+      href="#taintUniqueValue">taintUniqueValue</a>
+        </nav>
+    <main id="main-doc">
+      <section class="main-section" id="cache">
+        <header id="cache">cache</header>
+        <div class="text">
+          <p><span class="text-fancy">cache</span> lets you cache the result of a data fetch or computation.</p>
+          <div class="snippet">
+<code>
+<pre>
+<span class="keyword">const</span> cachedFn = <span class="definition">cache</span>(fn);
+</pre>
+</code>
+</div>
+<h2>Reference</h2>
+<p><span class="text-fancy">cache(fn)</span></p>
+<p>Call <span class="text-fancy">cache</span> outside of any components to create a version of the function with caching.</p>
+<div class="snippet">
+<code>
+<pre>
+<span class="keyword">import</span> {cache} <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> calculateMetrics <span class="keyword">from</span> <span class="string">'lib/metrics'</span>;
+<span class="keyword">const</span> getMetrics = <span class="keyword">cache</span>(calculateMetrics);
+
+<span class="keyword">function</span> <span class="definition">Chart</span>({<span class="keyword">data</span>}) {
+  <span class="keyword">const</span> report = <span class="definition">getMetrics</span>(data);
+  <span class="comment">// ...</span>
+}
+</pre>
+</code></div>
+
+
+
+<p>When <span class="text-fancy">getMetrics</span> is first called with <span class="text-fancy">data</span>, <span class="text-fancy">getMetrics</span> will call <span class="text-fancy">calculateMetrics(data)</span> and store the result in cache. If <span class="text-fancy">getMetrics</span> is called again with the same <span class="text-fancy">data</span>, it will return the cached result instead of calling <span class="text-fancy">calculateMetrics(data)</span> again.</p>
+
+<p><a>See more examples below.</a></p>
+
+<h3>Parameters</h3>
+<li><span class="text-fancy">fn</span>: The function you want to cache results for. <span class="text-fancy">fn</span> can take any arguments and return any value.</li>
+<h3>Returns</h3>
+<p><span class="text-fancy">cache</span> returns a cached version of <span class="text-fancy">fn</span> with the same type signature. It does not call <span class="text-fancy">fn</span> in the process.</p>
+
+<p>When calling cachedFn with given arguments, it first checks if a cached result exists in the cache. If a cached result exists, it returns the result. If not, it calls fn with the arguments, stores the result in the cache, and returns the result. The only time fn is called is when there is a cache miss.</p>
+
+<h3>Caveats</h3>
+<ul>
+<li>React will invalidate the cache for all memoized functions for each server request.</li>
+<li>Each call to <span class="text-fancy">cache</span> creates a new function. This means that calling <span class="text-fancy">cache</span> with the same function multiple times will return different memoized functions that do not share the same cache.</li>
+<li><span class="text-fancy">cachedFn</span> will also cache errors. If <span class="text-fancy">fn</span> throws an error for certain arguments, it will be cached, and the same error is re-thrown when <span class="text-fancy">cachedFn</span> is called with those same arguments.</li>
+<li><span class="text-fancy">cache</span> is for use in Server Components only.</li>
+</ul>
+        </div>
+      </section>
+      <section class="main-section" id="createContext">
+        <header id="createContext">createContext</header>
+        <div class="text">
+          <p><span class="text-fancy">createContext</span> lets you create a context that components can provide or read.</p>
+
+<div class="snippet">
+  <code>
+<span class="keyword">const</span> SomeContext = <span class="definition">createContext</span>(defaultValue)
+</code></div>
+        </div>
+      </section>
+
+
+      <section class="main-section" id="forwardRef">
+        <header id="forwardRef">forwardRef</header>
+        <div class="text">
+          <p><span class="text-fancy">forwardRef</span>  lets your component expose a DOM node to parent component with a ref.</p>
+
+<div class="snippet">
+<code>
+<span class="keyword">const</span> SomeComponent = <span class="definition">forwardRef</span>(render)</code></div>
+        </div>
+      </section>
+
+
+      <section class="main-section" id="lazy">
+        <header id="lazy">lazy</header>
+        <div class="text">
+          <p><span class="text-fancy">lazy</span> lets you defer loading component’s code until it is rendered for the first time.</p>
+
+<div class="snippet">
+<code>
+<span class="keyword">const</span> SomeComponent = <span class="definition">lazy</span>(load)</code></div>
+        </div>
+      </section>
+
+
+      <section class="main-section" id="memo">
+        <header id="memo">memo</header>
+        <div class="text">
+          <p><span class="text-fancy">memo</span> lets you skip re-rendering a component when its props are unchanged.</p>
+
+<div class="snippet">
+<span class="keyword">const</span> MemoizedComponent = <span class="definition">memo</span>(SomeComponent, arePropsEqual?)</div>
+        </div>
+      </section>
+
+
+      <section class="main-section" id="startTransition">
+        <header id="startTransition">startTransition</header>
+        <div class="text">
+          <p><span class="text-fancy">startTransition</span> lets you update the state without blocking the UI.</p>
+
+<div class="snippet"><span class="definition">startTransition</span>(scope)</div>
+        </div>
+      </section>
+
+
+      <section class="main-section" id="taintObjectReference">
+        <header id="taintObjectReference">taintObjectReference</header>
+        <div class="text">
+          <p><span class="text-fancy">experimental_taintObjectReference</span> lets you prevent a specific object instance from being passed to a Client Component like a <span class="text-fancy">user</span> object.</p>
+
+<div class="snippet">
+<span class="keyword">const</span> SomeContext = <span class="definition">experimental_taintObjectReference</span>(message, object)</div>
+        </div>
+      </section>
+
+
+      <section class="main-section" id="taintUniqueValue">
+        <header id="taintUniqueValue">taintUniqueValue</header>
+        <div class="text">
+          <p><span class="text-fancy">experimental_taintUniqueValue</span> lets you prevent unique values from being passed to Client Components like passwords, keys, or tokens.</p>
+
+<div class="snippet">
+<span class="keyword">const</span> SomeContext = <span class="definition">experimental_taintUniqueValue</span>(errMessage, lifetime, value)</div>
+        </div>
+      </section>
+
+
+    </main>
+  </body>
+</html>
