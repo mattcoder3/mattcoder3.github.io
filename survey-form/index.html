@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario de encuesta</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+    <h1 class="header" id="title">Formulario de encuesta de MattCoder</h1>
+    <p class="description" id="description">Gracias por tomarte el tiempo de mejorar el canal!</p>
+    <form id="survey-form" >
+      <fieldset class="form-group">
+      <label id="name-label" for="name" class="label">Ingresa tu nombre:<input id="name" type="text" placeholder="Juan" class="form-control" required></label>
+      <label id="email-label" class="label" for="email" >Ingresa tu correo electrónico:<input id="email" placeholder="pepe@gmail.com" type="email" class="form-control" required></label>
+      <label id="number-label"  class="label" for="number">Ingresa tu edad:<input id="number" placeholder="20" class="form-control" type="number" min="5" max="250"><label>
+    </fieldset>
+    <fieldset class="form-group">
+    <label class="label">
+    ¿Cómo me conociste?
+    <select id="dropdown" class="form-control">
+      <option value="">Seleccioná una respuesta</option>
+      <option value="1">Te encontré en YouTube</option>
+      <option value="2">Te recomendó un amigo/conocido</option>
+      <option value="3">Otro</option>
+    </select>
+    </label>
+    </fieldset>
+    <fieldset class="form-group">
+      <p>Estás suscripto al canal?</p>
+      <label><input class="input-radio" type="radio" name="suscrito" value="si">Sí</label>
+      <label><input class="input-radio" type="radio" name="suscrito" value="no">No</label>
+      <p>Te sigo en:</p>
+      <label><input  class="input-checkbox" value="yt" type="checkbox" name="follow">YouTube</label>
+      <label><input class="input-checkbox" value="tt" type="checkbox" name="follow">TikTok</label>
+      <label><input class="input-checkbox" value="mnm" type="checkbox" name="follow">El canal de anime (Mugiwara no Matt)</label>
+    </fieldset>
+    <fieldset class="form-group">
+      <textarea class="input-textarea">Me gusta canal porque...</textarea>
+    </fieldset>
+    <input class="submit-button" type="submit" value="Enviar" id="submit">
+    </form>
+    </div>
+  </body>
+</html>
