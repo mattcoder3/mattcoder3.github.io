@@ -106,7 +106,7 @@ header {
   color: var(--background);
 }
 
-navbar {
+#navbar {
   height: 100%;
   padding: 0 1em;
   display: flex;
